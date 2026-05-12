@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ BASE FIX (safe + correct) */
+@layer base {
+  html {
+    scroll-behavior:smooth;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  ::webkit-scrollbar{
+    display:none;
+  }
+
+  body {
+    @apply text-gray-700 bg-white;
+  }
+}
+
+/* ✅ COMPONENTS */
+@layer components {
+
+  .rich-text {
+    @apply leading-7 text-gray-700 text-sm;
+  }
+
+  /* Paragraphs */
+  .rich-text p {
+    @apply mb-3;
+  }
+
+  /* Headings */
+  .rich-text h1 {
+    @apply text-2xl sm:text-3xl font-bold mt-5 mb-2 text-gray-900;
+  }
+
+  .rich-text h2 {
+    @apply text-xl sm:text-2xl font-semibold mt-4 mb-2 text-gray-900;
+  }
+
+  /* Lists */
+  .rich-text ol {
+    @apply pl-5 mb-3 list-decimal;
+  }
+
+  .rich-text ul {
+    @apply pl-5 mb-3 list-disc;
+  }
+
+  .rich-text li {
+    @apply mb-1;
+  }
+
+  /* Bold */
+  .rich-text strong {
+    @apply font-semibold text-gray-900;
+  }
+
+  /* Links */
+  .rich-text a {
+    @apply text-blue-600 underline hover:text-blue-700;
+  }
+}
+
+/* ✅ FIX: Complex selector OUTSIDE @apply */
+.rich-text h2 + ol,
+.rich-text h2 + p {
+  margin-top: 4px;
+}
